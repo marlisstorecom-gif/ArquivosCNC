@@ -204,14 +204,11 @@ export default function App() {
             <div className="absolute inset-0 bg-yellow-100/40 rounded-3xl transform rotate-1.5" />
             <div className="relative bg-slate-50 border border-slate-200/60 p-4 rounded-3xl shadow-xl w-full max-w-md overflow-hidden">
               <img 
-                src="https://thelaserdesign.store/wp-content/uploads/2026/05/HEROCNC-.png" 
+                src="https://res.cloudinary.com/dm2glkkcv/image/upload/v1780856506/ChatGPT_Image_7_de_jun._de_2026_15_14_48_uhjggt.png" 
                 alt="Demonstração do Pacote Premium e Projetos Cortados"
                 className="w-full h-auto rounded-2xl shadow-xs select-none pointer-events-none group-hover:scale-101 transition-transform duration-300"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute top-6 right-6 bg-yellow-400 text-slate-900 px-3 py-1 rounded-full text-xs font-black shadow-xs flex items-center gap-1">
-                <span>⭐ 4.9 Global</span>
-              </div>
             </div>
           </div>
 
