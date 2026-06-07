@@ -109,7 +109,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 py-10 lg:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           
           {/* Hero Left Info */}
-          <div className="space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left-4 duration-500">
+          <div className="space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left-4 duration-500 order-last md:order-first">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 leading-tight tracking-tight">
               Mais de <span className="text-yellow-500 underline decoration-yellow-400 decoration-wavy">700.000 arquivos</span> prontos para impressão a laser por apenas <span className="text-yellow-600 bg-yellow-100 px-3 py-1 rounded-xl">US$ 20</span>
             </h1>
@@ -200,7 +200,7 @@ export default function App() {
           </div>
 
           {/* Hero Right Preview Image Mockup representation */}
-          <div className="relative group flex items-center justify-center animate-in fade-in slide-in-from-right-4 duration-500">
+          <div className="relative group flex items-center justify-center animate-in fade-in slide-in-from-right-4 duration-500 order-first md:order-last">
             <div className="absolute inset-0 bg-yellow-100/40 rounded-3xl transform rotate-1.5" />
             <div className="relative bg-slate-50 border border-slate-200/60 p-4 rounded-3xl shadow-xl w-full max-w-md overflow-hidden">
               <img 
