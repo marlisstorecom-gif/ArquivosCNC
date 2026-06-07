@@ -1,0 +1,6 @@
+{
+  "name": "The Laser Design Store",
+  "description": "The Laser Design Mega Bundle offering over 700,000 laser-ready files. Organized categories, machine-tested vectors, and a comprehensive comparison list.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
