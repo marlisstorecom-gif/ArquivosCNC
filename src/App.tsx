@@ -109,7 +109,7 @@ export default function App() {
   const formatNumber = (num: number) => String(num).padStart(2, '0');
   const timerStr = `${formatNumber(timeLeft.hours)}:${formatNumber(timeLeft.minutes)}:${formatNumber(timeLeft.seconds)}`;
 
-  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://pay.kiwify.com.br/demo-laser-bundle');
+  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/d85ef');
 
   useEffect(() => {
     fetch('/api/checkout-url')
@@ -124,6 +124,13 @@ export default function App() {
 
   const toggleFaq = (id: string) => {
     setOpenFaqId(openFaqId === id ? null : id);
+  };
+
+  const handleScrollToPricing = () => {
+    const el = document.getElementById('pricing-card');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleOpenCheckout = () => {
@@ -224,7 +231,7 @@ export default function App() {
             {/* Main Action Call button */}
             <div className="pt-2">
               <button
-                onClick={handleOpenCheckout}
+                onClick={handleScrollToPricing}
                 className="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black px-8 py-4 sm:py-4.5 rounded-xl shadow-xs hover:shadow-lg transform active:scale-97 transition-all text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>👉 Obtenha Acesso Instantâneo Agora ➔</span>
@@ -413,7 +420,7 @@ export default function App() {
 
       {/* 5. CATEGORIES BROWSER MODULE */}
       <CategoryExplorer 
-        onSelectBuy={handleOpenCheckout}
+        onSelectBuy={handleScrollToPricing}
         onImageClick={(url, title) => setLightbox({ url, title })}
       />
 
@@ -533,7 +540,7 @@ export default function App() {
         </div>
 
         {/* Highlighted Buy Box */}
-        <div className="mt-12 bg-white border-2 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-xl max-w-sm sm:max-w-md mx-auto text-center space-y-4">
+        <div id="pricing-card" className="mt-12 bg-white border-2 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-xl max-w-sm sm:max-w-md mx-auto text-center space-y-4">
           <span className="inline-block bg-yellow-100 text-yellow-800 text-[10px] md:text-xs font-black tracking-widest px-4 py-1 rounded-full uppercase">
             ⚡ Garanta Já o Seu Desconto!
           </span>
@@ -679,7 +686,7 @@ export default function App() {
 
           <div className="pt-4">
             <button
-              onClick={handleOpenCheckout}
+              onClick={handleScrollToPricing}
               className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black px-10 py-4 sm:py-5 rounded-2xl text-sm sm:text-base md:text-lg shadow-xs hover:shadow-xl transform active:scale-97 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
             >
               <span>🛒 Obtenha acesso instantâneo — Apenas R$ 10 →</span>
