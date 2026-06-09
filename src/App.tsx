@@ -38,6 +38,45 @@ export default function App() {
   const [lightbox, setLightbox] = useState<{ url: string; title: string } | null>(null);
   const [openFaqId, setOpenFaqId] = useState<string | null>(null);
   
+  // Secure checkout redirect and prefill states
+  const [initialCheckoutStep, setInitialCheckoutStep] = useState<'form' | 'success'>('form');
+  const [prefilledName, setPrefilledName] = useState('');
+  const [prefilledEmail, setPrefilledEmail] = useState('');
+
+  // Target successful redirect parameters
+  useEffect(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const statusParam = urlParams.get('status')?.toLowerCase() || '';
+      const transactionIdParam = urlParams.get('transaction_id') || urlParams.get('id') || urlParams.get('txid') || urlParams.get('order_id') || '';
+      
+      const hasSuccessIndicator = 
+        statusParam === 'approved' || 
+        statusParam === 'aprovado' || 
+        statusParam === 'paid' || 
+        statusParam === 'pago' || 
+        statusParam === 'sucesso' || 
+        statusParam === 'success' ||
+        urlParams.has('checkout_success') ||
+        (transactionIdParam && (transactionIdParam.startsWith('MP-') || transactionIdParam.startsWith('TX-'))) ||
+        (urlParams.has('id') && urlParams.has('name') && urlParams.has('email'));
+
+      if (hasSuccessIndicator) {
+        console.log("[Secure Checkout] Redirect de compra bem sucedida detectado!");
+        setPrefilledName(urlParams.get('name') || urlParams.get('client_name') || '');
+        setPrefilledEmail(urlParams.get('email') || urlParams.get('client_email') || '');
+        setInitialCheckoutStep('success');
+        setIsCheckoutOpen(true);
+        
+        // Limpa parâmetros da URL para evitar reabertura involuntária do modal no refresh
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+      }
+    } catch (e) {
+      console.error("[Checkout parameter parsing error]", e);
+    }
+  }, []);
+  
   // Timer state
   const [timeLeft, setTimeLeft] = useState({ hours: 5, minutes: 59, seconds: 47 });
 
@@ -70,12 +109,25 @@ export default function App() {
   const formatNumber = (num: number) => String(num).padStart(2, '0');
   const timerStr = `${formatNumber(timeLeft.hours)}:${formatNumber(timeLeft.minutes)}:${formatNumber(timeLeft.seconds)}`;
 
+  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://pay.kiwify.com.br/demo-laser-bundle');
+
+  useEffect(() => {
+    fetch('/api/checkout-url')
+      .then(res => res.json())
+      .then(data => {
+        if (data.checkoutUrl) {
+          setPlatformCheckoutUrl(data.checkoutUrl);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const toggleFaq = (id: string) => {
     setOpenFaqId(openFaqId === id ? null : id);
   };
 
   const handleOpenCheckout = () => {
-    setIsCheckoutOpen(true);
+    window.location.href = platformCheckoutUrl;
   };
 
   return (
@@ -649,6 +701,9 @@ export default function App() {
       <CheckoutModal 
         isOpen={isCheckoutOpen} 
         onClose={() => setIsCheckoutOpen(false)} 
+        initialStep={initialCheckoutStep}
+        initialName={prefilledName}
+        initialEmail={prefilledEmail}
       />
 
       {/* 13. FULL EXPANDED PORTRAIT LIGHTBOX */}
