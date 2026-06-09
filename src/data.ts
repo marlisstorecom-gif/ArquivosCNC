@@ -65,7 +65,7 @@ export const REVIEWS: Review[] = [
     machine: 'LightBurn',
     material: 'Acrílico',
     stars: 5,
-    text: '"Arrastei os arquivos DXF diretamente para o LightBurn e comecei a cortar em 10 minutos. Já recuperei os 20 dólares no meu primeiríssimo dia de vendas usando minhas peças no Etsy."',
+    text: '"Arrastei os arquivos DXF diretamente para o LightBurn e comecei a cortar em 10 minutos. Já recuperei os 10 reais no meu primeiríssimo dia de vendas usando minhas peças no Etsy."',
     tag: 'Vendedor do Etsy',
     verified: true,
     image: 'https://thelaserdesign.store/wp-content/uploads/2025/10/1.png'
@@ -89,7 +89,7 @@ export const REVIEWS: Review[] = [
     machine: 'Fresadora CNC',
     material: 'Madeira maciça',
     stars: 5,
-    text: '"Incrível como os tamanhos e as juntas se encaixam certinho. Abre diretamente no CorelDRAW sem travamentos ou erros. Os melhores 20 dólares que já gastei para turbinar minha marcenaria."',
+    text: '"Incrível como os tamanhos e as juntas se encaixam certinho. Abre diretamente no CorelDRAW sem travamentos ou erros. Os melhores 10 reais que já gastei para turbinar minha marcenaria."',
     tag: 'Marcenaria',
     verified: true,
     image: 'https://thelaserdesign.store/wp-content/uploads/2026/05/78.jpg'
@@ -112,7 +112,7 @@ export const FAQS: FAQItem[] = [
   {
     id: 'faq-1',
     question: 'Trata-se de um pagamento único ou de uma assinatura?',
-    answer: 'É um pagamento único de apenas US$ 20. Você não terá cobranças mensais, anuidades ou taxas escondidas. Você garante acesso vitalício a toda a biblioteca atual e a todas as atualizações futuras gratuitamente.'
+    answer: 'É um pagamento único de apenas R$ 10. Você não terá cobranças mensais, anuidades ou taxas escondidas. Você garante acesso vitalício a toda a biblioteca atual e a todas as atualizações futuras gratuitamente.'
   },
   {
     id: 'faq-2',
@@ -190,8 +190,8 @@ export const COMPARE_ROWS: CompareRow[] = [
   {
     feature: 'Custo total de investimento',
     free: 'Grátis (mas perde horas buscando)',
-    thisBundle: 'Apenas US$ 20 (pagamento único)',
-    designer: 'U$$ 50 a US$ 500 por projeto',
+    thisBundle: 'Apenas R$ 10 (pagamento único)',
+    designer: 'R$ 50 a R$ 500 por projeto',
     freeCheck: true,
     thisBundleCheck: true,
     designerCheck: false

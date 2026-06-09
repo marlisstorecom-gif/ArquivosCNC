@@ -137,7 +137,7 @@ export default function App() {
       <div className="bg-slate-900 border-b border-yellow-400 text-yellow-300 py-2.5 px-4 sticky top-0 z-50 text-center font-sans shadow-md flex flex-wrap gap-2 justify-center items-center">
         <span className="flex items-center gap-1.5 text-xs sm:text-sm font-extrabold tracking-tight">
           <Flame className="w-4 h-4 text-yellow-400 animate-pulse" />
-          🔥 PROMOÇÃO RELÂMPAGO — O preço volta a ser $97 em breve! Tempo restante:
+          🔥 PROMOÇÃO RELÂMPAGO — O preço volta a ser R$ 97 em breve! Tempo restante:
         </span>
         <div className="bg-yellow-400 text-slate-950 px-2.5 py-1 rounded-md font-mono text-xs sm:text-sm font-black tracking-widest flex items-center gap-1.5 shadow-2xs">
           <Clock className="w-3.5 h-3.5" />
@@ -163,7 +163,7 @@ export default function App() {
           {/* Hero Left Info */}
           <div className="space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left-4 duration-500 order-last md:order-first">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 leading-tight tracking-tight">
-              Mais de <span className="text-yellow-500 underline decoration-yellow-400 decoration-wavy">700.000 arquivos</span> prontos para impressão a laser por apenas <span className="text-yellow-600 bg-yellow-100 px-3 py-1 rounded-xl">US$ 20</span>
+              Mais de <span className="text-yellow-500 underline decoration-yellow-400 decoration-wavy">700.000 arquivos</span> prontos para impressão a laser por apenas <span className="text-yellow-600 bg-yellow-100 px-3 py-1 rounded-xl">R$ 10</span>
             </h1>
             
             <p className="text-slate-500 text-sm sm:text-base pr-0 md:pr-10">
@@ -206,11 +206,11 @@ export default function App() {
 
             {/* Pricing Tag */}
             <div className="pt-2 flex flex-col items-center md:items-start space-y-1.5">
-              <span className="text-xs line-through text-slate-400 font-bold">Preço Regular Estimado: US$ 97,00</span>
+              <span className="text-xs line-through text-slate-400 font-bold">Preço Regular Estimado: R$ 97,00</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-slate-800 font-bold text-lg sm:text-xl">Apenas</span>
-                <span className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">US$ 20,00</span>
-                <span className="text-emerald-600 font-bold text-xs bg-emerald-50 border border-emerald-100 rounded-full px-2 py-0.5">Economize $77</span>
+                <span className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">R$ 10,00</span>
+                <span className="text-emerald-600 font-bold text-xs bg-emerald-50 border border-emerald-100 rounded-full px-2 py-0.5">Economize R$ 87</span>
               </div>
             </div>
 
@@ -231,16 +231,16 @@ export default function App() {
               </button>
               
               {/* Payment methods badge link */}
-              <div className="mt-3 flex flex-col items-center md:items-start gap-2">
+              <div className="mt-[5px] flex flex-col items-center md:items-start gap-[5px]">
                 <img 
-                  src="https://scalesales.site/wp-content/uploads/2025/07/pay_safty-1024x67-1-1.webp" 
+                  src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
                   alt="Metodos de pagamento seguro"
-                  className="max-h-5 object-contain select-none opacity-80"
+                  className="w-full max-w-[290px] h-auto object-contain select-none"
                   referrerPolicy="no-referrer"
                 />
                 
                 {/* Score badge summary */}
-                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50/50 px-3 py-1 rounded-lg border border-emerald-100">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50/50 px-3 py-1 rounded-lg border border-emerald-100 mt-[5px]">
                   <div className="flex gap-0.5 text-yellow-500">
                     {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 stroke-yellow-500" />)}
                   </div>
@@ -427,7 +427,7 @@ export default function App() {
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Por que escolher este pacote?</span>
             <h2 className="text-3xl font-extrabold text-slate-800 mt-2">Compare suas <span className="text-yellow-500">opções</span></h2>
-            <p className="text-slate-500 text-xs mt-2">Veja por que milhares de artesãos, marceneiros e criadores preferem investir apenas US$ 20 neste pacote consolidado.</p>
+            <p className="text-slate-500 text-xs mt-2">Veja por que milhares de artesãos, marceneiros e criadores preferem investir apenas R$ 10 neste pacote consolidado.</p>
           </div>
 
           {/* Table Container */}
@@ -539,10 +539,10 @@ export default function App() {
           </span>
           
           <div>
-            <span className="text-xs line-through text-slate-400 font-bold block">Preço de tabela: US$ 97,00</span>
-            <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-1">US$ 20,00</div>
+            <span className="text-xs line-through text-slate-400 font-bold block">Preço de tabela: R$ 97,00</span>
+            <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-1">R$ 10,00</div>
             <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 inline-block mt-1">
-              Economize US$ 77 hoje mesmo
+              Economize R$ 87 hoje mesmo
             </span>
           </div>
 
@@ -555,18 +555,18 @@ export default function App() {
             onClick={handleOpenCheckout}
             className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Obtenha acesso instantâneo — $20 →</span>
+            <span>Obtenha acesso instantâneo — R$ 10 →</span>
           </button>
 
           <img 
-            src="https://scalesales.site/wp-content/uploads/2025/07/pay_safty-1024x67-1-1.webp" 
+            src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
             alt="Segurança Metodos"
-            className="mx-auto max-h-5 opacity-80"
+            className="w-full max-w-[290px] h-auto mx-auto object-contain select-none !mt-[5px]"
             loading="lazy"
             referrerPolicy="no-referrer"
           />
 
-          <div className="flex justify-center gap-4 text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+          <div className="flex justify-center gap-4 text-[10px] text-slate-400 font-semibold uppercase tracking-wider !mt-[5px]">
             <span>🔒 Seguro</span>
             <span>·</span>
             <span>⚡ Instantâneo</span>
@@ -624,7 +624,7 @@ export default function App() {
           </span>
           
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-            Pronto para desbloquear <span className="text-yellow-400">mais de 700.000 arquivos</span> por apenas <span className="text-yellow-400">US$ 20</span>?
+            Pronto para desbloquear <span className="text-yellow-400">mais de 700.000 arquivos</span> por apenas <span className="text-yellow-400">R$ 10</span>?
           </h2>
 
           <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
@@ -646,7 +646,7 @@ export default function App() {
               onClick={handleOpenCheckout}
               className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black px-10 py-4 sm:py-5 rounded-2xl text-sm sm:text-base md:text-lg shadow-xs hover:shadow-xl transform active:scale-97 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
             >
-              <span>🛒 Obtenha acesso instantâneo — Apenas $20 →</span>
+              <span>🛒 Obtenha acesso instantâneo — Apenas R$ 10 →</span>
             </button>
             <p className="text-[10px] text-slate-400 mt-2">Aumento de preços após o término desta oferta limitada · Transação 100% Criptografada</p>
           </div>

@@ -75,7 +75,7 @@ async function startServer() {
       success: true,
       transactionId: transactionId,
       paymentMethod: paymentMethod || "card",
-      amount: 20.00, // US$ 20.00 or R$ 99.00
+      amount: 10.00, // R$ 10.00
       checkoutUrl: finalCheckoutUrl,
       status: "pending_external",
       message: "Redirecionando para a plataforma de pagamento com segurança."

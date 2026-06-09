@@ -146,7 +146,7 @@ export default function CheckoutModal({
           </div>
           <div className="text-right">
             <span className="text-xs line-through text-slate-400">De R$ 197,00</span>
-            <div className="font-black text-xl text-emerald-600">US$ 20,00</div>
+            <div className="font-black text-xl text-emerald-600">R$ 10,00</div>
           </div>
         </div>
 

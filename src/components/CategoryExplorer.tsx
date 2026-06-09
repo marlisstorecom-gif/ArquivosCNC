@@ -157,7 +157,7 @@ export default function CategoryExplorer({ onSelectBuy, onImageClick }: Category
             onClick={onSelectBuy}
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-extrabold px-8 py-3.5 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm cursor-pointer"
           >
-            <span>👉 Obter Acesso Completo aos Vetores — $20 →</span>
+            <span>👉 Obter Acesso Completo aos Vetores — R$ 10 →</span>
           </button>
           <p className="text-xs text-slate-400">Uma única licença vitalícia · Entrega instantânea via Google Drive · Garantia Completa de Reembolso</p>
         </div>
