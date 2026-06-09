@@ -551,6 +551,42 @@ export default function App() {
             <span>A oferta terminará em: <strong className="text-red-500 font-mono text-sm">{timerStr}</strong></span>
           </div>
 
+          {/* Advantages list */}
+          <div className="text-left bg-slate-50 border border-slate-100/80 rounded-2xl p-4 sm:p-5 space-y-3">
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>+ 700.000 Arquivos Prontos</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>Mais de 100 GB em SVG, DXF, AI, PNG, EPS, PDF e CDR</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>40+ Categorias Organizadas</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>Acesso Imediato ao Google Drive</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>Todas as Máquinas Suportadas</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>Licença Comercial Inclusa</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>Acesso Vitalício</span>
+            </div>
+            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
+              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span>7 Dias de Garantia</span>
+            </div>
+          </div>
+
           <button
             onClick={handleOpenCheckout}
             className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
@@ -673,13 +709,6 @@ export default function App() {
           <div className="space-y-1">
             <p className="font-extrabold text-sm text-slate-300">The Laser Design Store</p>
             <p className="text-slate-500">London, United Kingdom</p>
-          </div>
-          
-          <div className="pt-4 flex flex-col items-center gap-2">
-            <p className="text-slate-400 font-medium">Suporte Oficial ao Cliente:</p>
-            <a href="mailto:info.emaillaserdesign@gmail.com" className="hover:text-yellow-400 font-semibold underline text-slate-300 text-xs sm:text-sm">
-              info.emaillaserdesign@gmail.com
-            </a>
           </div>
 
           <div className="pt-4 flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
