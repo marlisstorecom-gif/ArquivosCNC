@@ -124,29 +124,29 @@ export default function UpsellPage() {
 
       {/* STRATEGIC AND RESPONSIVE PROGRESS MAP (Single Line / Uma Única Linha) */}
       <div className="max-w-xl mx-auto px-4 mt-6 sm:mt-10">
-        <div className="bg-slate-900/80 border border-slate-800/90 rounded-xl p-3 flex items-center justify-between text-[11px] xs:text-xs font-bold shadow-xl overflow-x-auto whitespace-nowrap">
+        <div className="bg-slate-900/80 border border-slate-800/90 rounded-xl p-2.5 sm:p-3.5 flex items-center justify-between text-[9px] min-[360px]:text-[10px] xs:text-xs sm:text-sm font-bold shadow-xl">
           {/* Step 1 */}
-          <div className="flex items-center gap-1 sm:gap-1.5 text-emerald-400 shrink-0">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center text-[9px] font-black">✓</div>
-            <span>Pedido Confirmado</span>
+          <div className="flex items-center gap-1 sm:gap-1.5 text-emerald-400 shrink-0 select-none">
+            <div className="w-4.5 h-4.5 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center text-[8px] font-black shrink-0">✓</div>
+            <span className="whitespace-nowrap font-extrabold">Pedido Confirmado</span>
           </div>
 
           {/* Connector */}
-          <div className="h-[1.5px] min-w-[12px] sm:min-w-[24px] flex-1 bg-emerald-500/30 mx-2"></div>
+          <div className="h-[1px] flex-1 bg-emerald-500/30 mx-1.5 sm:mx-3"></div>
 
           {/* Step 2 */}
-          <div className="flex items-center gap-1 sm:gap-1.5 text-yellow-400 shrink-0 font-extrabold">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-yellow-400/20 border border-yellow-400 flex items-center justify-center text-[9px] shadow-[0_0_8px_rgba(250,204,21,0.5)] animate-pulse">2</div>
-            <span>Upgrade Ativado</span>
+          <div className="flex items-center gap-1 sm:gap-1.5 text-yellow-400 shrink-0 font-extrabold select-none">
+            <div className="w-4.5 h-4.5 rounded-full bg-yellow-400/20 border border-yellow-400 flex items-center justify-center text-[8px] shadow-[0_0_8px_rgba(250,204,21,0.5)] animate-pulse shrink-0">2</div>
+            <span className="whitespace-nowrap font-black">Upgrade Ativado</span>
           </div>
 
           {/* Connector */}
-          <div className="h-[1.5px] min-w-[12px] sm:min-w-[24px] flex-1 bg-slate-800 mx-2"></div>
+          <div className="h-[1px] flex-1 bg-slate-800 mx-1.5 sm:mx-3"></div>
 
           {/* Step 3 */}
-          <div className="flex items-center gap-1 sm:gap-1.5 text-slate-500 shrink-0 font-medium">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-800 border border-slate-705 flex items-center justify-center text-[9px]">3</div>
-            <span>Receber Material</span>
+          <div className="flex items-center gap-1 sm:gap-1.5 text-slate-500 shrink-0 font-semibold select-none">
+            <div className="w-4.5 h-4.5 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-[8px] shrink-0">3</div>
+            <span className="whitespace-nowrap">Receber Material</span>
           </div>
         </div>
       </div>
