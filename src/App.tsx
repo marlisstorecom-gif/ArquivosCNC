@@ -35,14 +35,38 @@ import CategoryExplorer from './components/CategoryExplorer';
 import UpsellPage from './components/UpsellPage';
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const getRoute = () => {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    const searchParams = new URLSearchParams(window.location.search);
+    const pageParam = searchParams.get('page')?.toLowerCase();
+
+    if (
+      path === '/upsell' || 
+      path === '/upsell/' || 
+      path.endsWith('/upsell.html') ||
+      path.endsWith('/upsell') ||
+      hash === '#/upsell' || 
+      hash === '#upsell' || 
+      pageParam === 'upsell'
+    ) {
+      return 'upsell';
+    }
+    return 'home';
+  };
+
+  const [currentRoute, setCurrentRoute] = useState(getRoute());
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
+      setCurrentRoute(getRoute());
     };
     window.addEventListener('popstate', handleLocationChange);
-    return () => window.removeEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -148,7 +172,7 @@ export default function App() {
     window.location.href = platformCheckoutUrl;
   };
 
-  if (currentPath.toLowerCase() === '/upsell' || currentPath.toLowerCase() === '/upsell/') {
+  if (currentRoute === 'upsell') {
     return <UpsellPage />;
   }
 
