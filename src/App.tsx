@@ -34,6 +34,7 @@ import ReviewsSection from './components/ReviewsSection';
 import CategoryExplorer from './components/CategoryExplorer';
 import UpsellPage from './components/UpsellPage';
 import DownsellPage from './components/DownsellPage';
+import ThankYouPage from './components/ThankYouPage';
 
 export default function App() {
   const getRoute = () => {
@@ -52,6 +53,18 @@ export default function App() {
       pageParam === 'downsell'
     ) {
       return 'downsell';
+    }
+
+    if (
+      path === '/obrigado' || 
+      path === '/obrigado/' || 
+      path.endsWith('/obrigado.html') ||
+      path.endsWith('/obrigado') ||
+      hash === '#/obrigado' || 
+      hash === '#obrigado' || 
+      pageParam === 'obrigado'
+    ) {
+      return 'obrigado';
     }
 
     if (
@@ -81,6 +94,11 @@ export default function App() {
       window.removeEventListener('hashchange', handleLocationChange);
     };
   }, []);
+
+  // Scroll to top automatically when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentRoute]);
 
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ url: string; title: string } | null>(null);
@@ -191,6 +209,10 @@ export default function App() {
 
   if (currentRoute === 'downsell') {
     return <DownsellPage />;
+  }
+
+  if (currentRoute === 'obrigado') {
+    return <ThankYouPage />;
   }
 
   return (
