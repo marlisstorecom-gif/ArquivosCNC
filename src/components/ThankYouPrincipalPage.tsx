@@ -1,0 +1,126 @@
+import { 
+  CheckCircle, 
+  Download, 
+  Clock, 
+  ExternalLink,
+  FolderOpen
+} from "lucide-react";
+
+export default function ThankYouPrincipalPage() {
+  // Google Drive link specifically for the main product "700.000 Projetos Corte a Laser"
+  const ACCESS_URL = "https://drive.google.com/drive/folders/1h-89rcE_HRuWMfsmWAtLv69XaexcatkM?usp=sharing";
+
+  return (
+    <div className="bg-slate-950 min-h-screen text-slate-100 font-sans antialiased selection:bg-yellow-500 selection:text-slate-950 pb-20 relative">
+      {/* Top Emerald Banner */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-yellow-400"></div>
+
+      <div className="max-w-3xl mx-auto px-4 pt-12 sm:pt-20">
+        {/* Animated Checkmark Badge */}
+        <div className="flex flex-col items-center text-center">
+          <div className="w-20 h-20 bg-yellow-400/10 border-2 border-yellow-400 rounded-full flex items-center justify-center text-yellow-400 mb-6 shadow-[0_0_30px_rgba(250,204,21,0.15)] animate-bounce">
+            <CheckCircle className="w-10 h-10 stroke-[2.5]" />
+          </div>
+
+          <p className="text-[10px] sm:text-xs font-black tracking-widest uppercase text-yellow-400 bg-yellow-400/5 px-4 py-1.5 rounded-full border border-yellow-400/15 mb-3">
+            Pagamento Confirmado • Acesso Liberado
+          </p>
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-2">
+            PAGAMENTO CONFIRMADO!
+          </h1>
+          <p className="text-slate-400 text-sm sm:text-base max-w-lg leading-relaxed">
+            Seu pedido foi processado com sucesso. Prepare-se para acelerar sua produção de corte a laser com os melhores designs do mercado!
+          </p>
+        </div>
+
+        {/* ACCESS THE PRODUCT - PRIMARY CONTAINER */}
+        <div className="mt-10 sm:mt-12 bg-slate-900 border border-yellow-400/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden transition-all hover:border-yellow-400/50">
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400/5 rounded-full filter blur-3xl pointer-events-none"></div>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-slate-800 pb-8 mb-8">
+            <div className="text-center sm:text-left">
+              <span className="text-[10px] sm:text-xs text-yellow-400 font-extrabold tracking-widest uppercase flex items-center justify-center sm:justify-start gap-1 mb-1">
+                <FolderOpen className="w-4 h-4 text-yellow-400" />
+                Seu produto digital
+              </span>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white">
+                700.000 Projetos Corte a Laser
+              </h2>
+              <p className="text-slate-400 text-xs sm:text-sm mt-1">
+                Acesso vitalício imediato com atualizações organizadas.
+              </p>
+            </div>
+            <div className="bg-slate-950 px-4 py-2.5 rounded-2xl border border-slate-800 text-center shrink-0">
+              <span className="text-[9px] text-slate-500 font-bold block uppercase tracking-wider">Status do Envio</span>
+              <span className="text-xs text-emerald-400 font-black tracking-wide flex items-center gap-1 mt-0.5">
+                ● Liberado para Download
+              </span>
+            </div>
+          </div>
+
+          {/* MASTER DOWNLOAD BUTTON */}
+          <div className="space-y-4">
+            <a 
+              href={ACCESS_URL} 
+              target="_blank" 
+              referrerPolicy="no-referrer"
+              className="w-full bg-yellow-400 hover:bg-yellow-350 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-[0_8px_25px_rgba(250,204,21,0.2)] hover:shadow-[0_12px_30px_rgba(250,204,21,0.3)] transition-all text-sm sm:text-base flex items-center justify-center gap-3 decoration-neutral-100 group cursor-pointer border-0 active:scale-97 select-none text-center"
+            >
+              <Download className="w-5.5 h-5.5 text-slate-950 stroke-[2.5] group-hover:scale-110 transition-transform" />
+              <span>👉 CLIQUE AQUI PARA ACESSAR MUDANDO PARA O DRIVE</span>
+              <ExternalLink className="w-4 h-4 opacity-75" />
+            </a>
+            
+            <p className="text-slate-500 text-[11px] text-center">
+              *Você também receberá um e-mail de confirmação contendo o acesso vitalício à pasta compartilhada.
+            </p>
+          </div>
+        </div>
+
+        {/* STEP-BY-STEP ACCESS GUIDE */}
+        <div className="mt-10">
+          <h3 className="text-sm font-black tracking-widest text-slate-400 uppercase mb-5 flex items-center gap-2">
+            <Clock className="w-4.5 h-4.5 text-yellow-400" />
+            Como acessar seu pack (Passo a Passo)
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 relative">
+              <span className="absolute top-4 right-4 text-3xl font-black text-slate-800 selection:bg-transparent">01</span>
+              <h4 className="text-white font-extrabold text-sm mb-2 uppercase">Passo Principal</h4>
+              <p className="text-slate-400 text-xs leading-normal">
+                Clique no botão amarelo acima para abrir e baixar os arquivos contidos no Google Drive.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 relative">
+              <span className="absolute top-4 right-4 text-3xl font-black text-slate-800 selection:bg-transparent">02</span>
+              <h4 className="text-white font-extrabold text-sm mb-2 uppercase">Salve ou Baixe</h4>
+              <p className="text-slate-400 text-xs leading-normal">
+                Você pode baixar os pacotes organizados ou salvá-los no seu próprio Google Drive para consultar online sempre que precisar.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 relative">
+              <span className="absolute top-4 right-4 text-3xl font-black text-slate-800 selection:bg-transparent">03</span>
+              <h4 className="text-white font-extrabold text-sm mb-2 uppercase">Produção &amp; Lucros</h4>
+              <p className="text-slate-400 text-xs leading-normal">
+                Use os arquivos em CorelDraw, AutoCAD, Illustrator ou outros softwares e inicie suas impressões e vendas imediatamente!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Small Home Redirect */}
+        <div className="mt-16 text-center">
+          <a 
+            href="/"
+            className="text-slate-500 hover:text-white transition-colors text-xs font-semibold underline"
+          >
+            Voltar para o site principal
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

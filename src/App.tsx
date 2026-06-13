@@ -35,6 +35,7 @@ import CategoryExplorer from './components/CategoryExplorer';
 import UpsellPage from './components/UpsellPage';
 import DownsellPage from './components/DownsellPage';
 import ThankYouPage from './components/ThankYouPage';
+import ThankYouPrincipalPage from './components/ThankYouPrincipalPage';
 
 export default function App() {
   const getRoute = () => {
@@ -53,6 +54,18 @@ export default function App() {
       pageParam === 'downsell'
     ) {
       return 'downsell';
+    }
+
+    if (
+      path === '/obrigadoprincipal' || 
+      path === '/obrigadoprincipal/' || 
+      path.endsWith('/obrigadoprincipal.html') ||
+      path.endsWith('/obrigadoprincipal') ||
+      hash === '#/obrigadoprincipal' || 
+      hash === '#obrigadoprincipal' || 
+      pageParam === 'obrigadoprincipal'
+    ) {
+      return 'obrigadoprincipal';
     }
 
     if (
@@ -188,6 +201,69 @@ export default function App() {
       .catch(() => {});
   }, []);
 
+  // Facebook Ads UTM parameters capturing effect (highly-durable React integration)
+  useEffect(() => {
+    const prefixes = [
+      "https://go.pepperpay.com.br/kr4d0",
+      "https://go.pepperpay.com.br/tmm3j",
+      "https://go.pepperpay.com.br/t217r"
+    ];
+
+    const getParams = () => {
+      let t = "";
+      let e = "";
+      try {
+        e = window.top?.location.href || window.location.href;
+      } catch (err) {
+        e = window.location.href;
+      }
+      
+      try {
+        const r = new URL(e);
+        if (r) {
+          const a = r.searchParams.get("utm_source") || "";
+          const n = r.searchParams.get("utm_medium") || "";
+          const o = r.searchParams.get("utm_campaign") || "";
+          const m = r.searchParams.get("utm_term") || "";
+          const c = r.searchParams.get("utm_content") || "";
+          if (e.indexOf("?") !== -1) {
+            t = `&sck=${a}|${n}|${o}|${m}|${c}`;
+          }
+        }
+      } catch (err) {
+        console.error("Tracking parameter collection error:", err);
+      }
+      return t;
+    };
+
+    const runDecorateAndForward = () => {
+      try {
+        const t = new URLSearchParams(window.location.search);
+        const tString = t.toString();
+        if (tString) {
+          document.querySelectorAll("a").forEach((el) => {
+            const originalHref = el.getAttribute("href") || "";
+            prefixes.forEach((pref) => {
+              if (originalHref.includes(pref)) {
+                if (!originalHref.includes("sck=")) {
+                  const hasQuestion = originalHref.includes("?");
+                  const joiner = hasQuestion ? "&" : "?";
+                  el.setAttribute("href", `${originalHref}${joiner}${tString}${getParams()}`);
+                }
+              }
+            });
+          });
+        }
+      } catch (err) {
+        console.error("URL parameters decoration error:", err);
+      }
+    };
+
+    runDecorateAndForward();
+    const intervalId = setInterval(runDecorateAndForward, 1000);
+    return () => clearInterval(intervalId);
+  }, [currentRoute]);
+
   const toggleFaq = (id: string) => {
     setOpenFaqId(openFaqId === id ? null : id);
   };
@@ -209,6 +285,10 @@ export default function App() {
 
   if (currentRoute === 'downsell') {
     return <DownsellPage />;
+  }
+
+  if (currentRoute === 'obrigadoprincipal') {
+    return <ThankYouPrincipalPage />;
   }
 
   if (currentRoute === 'obrigado') {
@@ -252,7 +332,7 @@ export default function App() {
             </h1>
             
             <p className="text-slate-500 text-sm sm:text-base pr-0 md:pr-10">
-              O maior pacote de design a laser do mercado internacional — testado, organizado por pastas catalogadas e pronto para recortes limpos.
+              O maior pacote de design a laser do mercado — testado, organizado por pastas catalogadas e pronto para recortes limpos.
             </p>
 
             {/* Micro checks block */}
@@ -808,6 +888,71 @@ export default function App() {
             <p>Este site não faz parte do site do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.</p>
             <p>© 2026 The Laser Design Store. Todos os direitos reservados. Imagens e vetores adicionais sob licença de simulação.</p>
           </div>
+
+          {/* Facebook Ads UTM parameters capturing script */}
+          <script dangerouslySetInnerHTML={{ __html: `
+            (function() {
+              var prefix = ["https://go.pepperpay.com.br/kr4d0","https://go.pepperpay.com.br/tmm3j","https://go.pepperpay.com.br/t217r" ];
+              function getParams() {
+                  var t = "",
+                      e = "";
+                  try {
+                      e = window.top.location.href;
+                  } catch(err) {
+                      e = window.location.href;
+                  }
+                  try {
+                      var r = new URL(e);
+                      if (null != r) {
+                          var a = r.searchParams.get("utm_source") || "",
+                              n = r.searchParams.get("utm_medium") || "",
+                              o = r.searchParams.get("utm_campaign") || "",
+                              m = r.searchParams.get("utm_term") || "",
+                              c = r.searchParams.get("utm_content") || "";
+                          if (e.indexOf("?") !== -1) {
+                              t = "&sck=" + a + "|" + n + "|" + o + "|" + m + "|" + c;
+                          }
+                          console.log(t);
+                      }
+                  } catch(error) {
+                      console.error("Facebook tracking getParams error:", error);
+                  }
+                  return t;
+              }
+              function updateLinks() {
+                  try {
+                      var t = new URLSearchParams(window.location.search);
+                      if (t.toString()) {
+                          document.querySelectorAll("a").forEach(function(e) {
+                              for (var r = 0; r < prefix.length; r++) {
+                                  if (e.href && e.href.indexOf(prefix[r]) !== -1) {
+                                      if (e.href.indexOf("sck=") === -1) {
+                                          if (e.href.indexOf("?") === -1) {
+                                              e.href += "?" + t.toString() + getParams();
+                                          } else {
+                                              e.href += "&" + t.toString() + getParams();
+                                          }
+                                      }
+                                  }
+                              }
+                          });
+                      }
+                  } catch(e) {
+                      console.error("Facebook tracking updateLinks error:", e);
+                  }
+              }
+              
+              if (document.readyState === "loading") {
+                  document.addEventListener("DOMContentLoaded", updateLinks);
+              } else {
+                  updateLinks();
+              }
+              
+              // Continuous checks to cover React runtime layout updates
+              var checkInterval = setInterval(updateLinks, 1000);
+              setTimeout(function() { clearInterval(checkInterval); }, 10000);
+          })();
+          ` }} />
         </div>
       </footer>
 

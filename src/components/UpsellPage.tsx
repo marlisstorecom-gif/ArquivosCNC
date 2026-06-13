@@ -32,6 +32,7 @@ export default function UpsellPage() {
     const script = document.createElement("script");
     script.src = "https://go.pepperpay.com.br/js/pepper-upsell-embed.js";
     script.setAttribute("data-upsell-hash", "fxuxye1le3");
+    script.setAttribute("data-upsell-text", "SIM, EU QUERO A MEGA COLEÇÃO!");
     script.async = true;
 
     const container = document.getElementById("pepper-upsell-container");
@@ -123,8 +124,9 @@ export default function UpsellPage() {
   ];
 
   const handleDeclineUpsell = () => {
-    // Redirect cleanly to the /downsell slug using state-safe HTML5 history pushState
-    window.history.pushState(null, "", "/downsell");
+    // Redirect cleanly to the /downsell slug preserving all query parameters
+    const searchParams = window.location.search;
+    window.history.pushState(null, "", `/downsell${searchParams}`);
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
@@ -324,6 +326,24 @@ export default function UpsellPage() {
           <p className="text-slate-300 text-xs mb-5 leading-normal">
             Satisfação Total Garantida. Adicione a biblioteca ao seu pedido principal e comece a lucrar hoje mesmo.
           </p>
+
+          <style dangerouslySetInnerHTML={{__html: `
+            #pepper-upsell-container {
+              width: 100% !important;
+              max-width: 100% !important;
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+            }
+            #pepper-upsell-container iframe {
+              width: 100% !important;
+              max-width: 100% !important;
+              min-width: 100% !important;
+              border: none !important;
+              display: block !important;
+              margin: 0 auto !important;
+            }
+          `}} />
 
           <div id="pepper-upsell-container" className="my-4 flex justify-center items-center overflow-hidden min-h-[120px] w-full">
             {/* O iframe do Pepper Upsell será injetado automaticamente aqui */}

@@ -60,12 +60,41 @@ export default function DownsellPage() {
     return () => clearInterval(intervalRef);
   }, []);
 
+  // Dynamically load the Pepper Downsell script and set up approval redirects
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://go.pepperpay.com.br/js/pepper-upsell-embed.js";
+    script.setAttribute("data-upsell-hash", "736lks3hzv");
+    script.setAttribute("data-upsell-text", "👉 SIM! QUERO ADICIONAR O KIT ESSENCIAL POR APENAS R$ 14,90");
+    script.async = true;
+
+    const container = document.getElementById("pepper-downsell-container");
+    if (container) {
+      container.appendChild(script);
+    }
+
+    const handleSuccess = (e: any) => {
+      console.log("Downsell approved!", e.detail?.transactionHash);
+      window.history.pushState(null, "", "/obrigado");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    };
+
+    window.addEventListener("pepperUpsellSuccess", handleSuccess);
+
+    return () => {
+      window.removeEventListener("pepperUpsellSuccess", handleSuccess);
+      if (container) {
+        container.innerHTML = "";
+      }
+    };
+  }, []);
+
   const formatNumber = (num: number) => String(num).padStart(2, '0');
 
   const handleDeclineDownsell = () => {
-    // Redirect cleanly to the home slug (/) with success confirmation query parameters using state-safe pushState
-    window.history.pushState(null, "", "/?status=success&checkout_success=true");
-    window.dispatchEvent(new PopStateEvent("popstate"));
+    // Redirect cleanly to the external thank you page slug, preserving query parameters
+    const searchParams = window.location.search;
+    window.location.href = `https://pack-arquivos-laser.netlify.app/obrigadoprincipal${searchParams}`;
   };
 
   const handleBuyDownsell = () => {
@@ -205,17 +234,28 @@ export default function DownsellPage() {
             Acesso imediato após a confirmação do pagamento.
           </p>
 
-          <button
-            onClick={handleBuyDownsell}
-            disabled={loading}
-            className="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-black py-3 px-5 rounded-xl shadow-lg transition-all text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer border-0 active:scale-97"
-          >
-            {loading ? (
-              <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-            ) : (
-              <span>👉 SIM! QUERO ADICIONAR O KIT ESSENCIAL POR APENAS R$ 14,90</span>
-            )}
-          </button>
+          <style dangerouslySetInnerHTML={{__html: `
+            #pepper-downsell-container {
+              width: 100% !important;
+              max-width: 100% !important;
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+            }
+            #pepper-downsell-container iframe {
+              width: 100% !important;
+              max-width: 100% !important;
+              min-width: 100% !important;
+              border: none !important;
+              display: block !important;
+              margin: 0 auto !important;
+            }
+          `}} />
+
+          <div id="pepper-downsell-container" className="my-4 flex justify-center items-center overflow-hidden min-h-[120px] w-full">
+            {/* O iframe do Pepper Downsell será injetado automaticamente aqui */}
+            <div className="text-xs text-slate-500 animate-pulse">Carregando formulário seguro de pagamento Pepper...</div>
+          </div>
 
           <div className="flex justify-between items-center mt-5 pt-3 border-t border-slate-800/50 text-[9px] text-slate-500 font-medium">
             <div className="flex items-center gap-1">
