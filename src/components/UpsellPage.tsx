@@ -26,7 +26,34 @@ interface NicheItem {
 
 export default function UpsellPage() {
   const [timeLeft, setTimeLeft] = useState({ minutes: 9, seconds: 59 });
-  const [loading, setLoading] = useState(false);
+
+  // Dynamically load the Pepper Upsell script and set up approval redirects
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://go.pepperpay.com.br/js/pepper-upsell-embed.js";
+    script.setAttribute("data-upsell-hash", "fxuxye1le3");
+    script.async = true;
+
+    const container = document.getElementById("pepper-upsell-container");
+    if (container) {
+      container.appendChild(script);
+    }
+
+    const handleSuccess = (e: any) => {
+      console.log("Upsell approved!", e.detail?.transactionHash);
+      window.history.pushState(null, "", "/obrigado");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    };
+
+    window.addEventListener("pepperUpsellSuccess", handleSuccess);
+
+    return () => {
+      window.removeEventListener("pepperUpsellSuccess", handleSuccess);
+      if (container) {
+        container.innerHTML = "";
+      }
+    };
+  }, []);
 
   // Robust Mobile-safe Countdown using precise timestamp delta
   useEffect(() => {
@@ -99,12 +126,6 @@ export default function UpsellPage() {
     // Redirect cleanly to the /downsell slug using state-safe HTML5 history pushState
     window.history.pushState(null, "", "/downsell");
     window.dispatchEvent(new PopStateEvent("popstate"));
-  };
-
-  const handleBuyUpsell = () => {
-    setLoading(true);
-    // Secure purchase funnel redirect
-    window.location.href = "https://go.pepperpay.com.br/d85ef";
   };
 
   return (
@@ -304,17 +325,10 @@ export default function UpsellPage() {
             Satisfação Total Garantida. Adicione a biblioteca ao seu pedido principal e comece a lucrar hoje mesmo.
           </p>
 
-          <button
-            onClick={handleBuyUpsell}
-            disabled={loading}
-            className="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-black py-3 px-5 rounded-xl shadow-lg transition-all text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer border-0 active:scale-97"
-          >
-            {loading ? (
-              <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-            ) : (
-              <span>👉 QUERO ADICIONAR AGORA MESMO POR R$ 29,90!</span>
-            )}
-          </button>
+          <div id="pepper-upsell-container" className="my-4 flex justify-center items-center overflow-hidden min-h-[120px] w-full">
+            {/* O iframe do Pepper Upsell será injetado automaticamente aqui */}
+            <div className="text-xs text-slate-500 animate-pulse">Carregando formulário seguro de pagamento Pepper...</div>
+          </div>
 
           {/* Secure elements */}
           <div className="flex justify-between items-center mt-5 pt-3 border-t border-slate-800/50 text-[9px] text-slate-500 font-medium">

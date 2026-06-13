@@ -1,29 +1,14 @@
-import { useState } from "react";
 import { 
   CheckCircle, 
   Download, 
-  MessageSquare, 
-  Mail, 
   Clock, 
   ExternalLink,
-  ShieldCheck,
-  FolderOpen,
-  HelpCircle,
-  Copy,
-  Check
+  FolderOpen
 } from "lucide-react";
 
 export default function ThankYouPage() {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("suporte.marlisstore@gmail.com");
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
   // Google Drive custom link containing vector bundles
-  const ACCESS_URL = "https://drive.google.com/drive/folders/17YfM-XwI3Iun9IOn2k2U0_8oG0LpxHia?usp=sharing";
+  const ACCESS_URL = "https://drive.google.com/drive/folders/1w4raY0UBTUnSpb36unsxpgXK4dXh7X0o?usp=drive_link";
 
   return (
     <div className="bg-slate-950 min-h-screen text-slate-100 font-sans antialiased selection:bg-yellow-500 selection:text-slate-950 pb-20 relative">
@@ -122,90 +107,6 @@ export default function ThankYouPage() {
               <p className="text-slate-400 text-xs leading-normal">
                 Abra os arquivos em CDR, DXF, SVG ou PDF no seu software preferido e inicie seus cortes e lucros imediatamente!
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CUSTOM TRANSACTION RECEIPT DETAILS CARDS */}
-        <div className="mt-10 bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8">
-          <h3 className="text-xs sm:text-sm font-black tracking-widest text-slate-400 uppercase mb-4 flex items-center gap-1.5">
-            <ShieldCheck className="w-4.5 h-4.5 text-emerald-400" />
-            Recibo Detalhado do Pedido
-          </h3>
-
-          <div className="space-y-3.5 border-b border-slate-800 pb-5 mb-5 text-xs sm:text-sm">
-            <div className="flex justify-between items-center text-slate-400">
-              <span>Produto</span>
-              <span className="text-white font-semibold">Mega Coleção 5.000+ Vetores Premium</span>
-            </div>
-            <div className="flex justify-between items-center text-slate-400">
-              <span>Status do pagamento</span>
-              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded text-[10px] font-black uppercase">
-                Aprovado
-              </span>
-            </div>
-            <div className="flex justify-between items-center text-slate-400">
-              <span>Tipo de Acesso</span>
-              <span className="text-white font-semibold">Vitalício &amp; Sem Mensalidades</span>
-            </div>
-            <div className="flex justify-between items-center text-slate-400">
-              <span>Método</span>
-              <span className="text-white font-semibold">Pix / Cartão de Crédito</span>
-            </div>
-          </div>
-
-          <div className="text-slate-400 text-xs leading-relaxed flex items-center gap-2">
-            <HelpCircle className="w-4 h-4 text-yellow-400 shrink-0" />
-            <span>Estamos à sua disposição! Caso precise de suporte técnico ou tenha alguma dúvida, fale conosco.</span>
-          </div>
-        </div>
-
-        {/* SUPPORT CONTACT BOX */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Email Support Box */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-start gap-4">
-            <div className="bg-sky-500/10 p-2.5 rounded-xl border border-sky-500/20 text-sky-400">
-              <Mail className="w-5 h-5" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h4 className="text-white text-xs sm:text-sm font-black uppercase mb-1">Contato por E-mail</h4>
-              <p className="text-slate-400 text-[11px] mb-2 leading-relaxed">Respondemos em até 24 horas úteis:</p>
-              <button 
-                onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 text-[10px] font-bold text-sky-400 hover:text-sky-300 pointer group bg-transparent border-0 cursor-pointer p-0"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Copiado!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 group-hover:scale-105 transition-transform" />
-                    <span className="truncate">suporte.marlisstore@gmail.com</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* WhatsApp Support Box */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-start gap-4">
-            <div className="bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20 text-emerald-400">
-              <MessageSquare className="w-5 h-5" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h4 className="text-white text-xs sm:text-sm font-black uppercase mb-1">Atendimento WhatsApp</h4>
-              <p className="text-slate-400 text-[11px] mb-2 leading-relaxed">Disponível de Seg. a Sex. comercial:</p>
-              <a 
-                href="https://wa.me/5598991234567" 
-                target="_blank" 
-                referrerPolicy="no-referrer"
-                className="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 hover:underline"
-              >
-                <span>Falar Conosco no WhatsApp</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
             </div>
           </div>
         </div>
