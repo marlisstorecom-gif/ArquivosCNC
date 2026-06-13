@@ -33,6 +33,7 @@ import CheckoutModal from './components/CheckoutModal';
 import ReviewsSection from './components/ReviewsSection';
 import CategoryExplorer from './components/CategoryExplorer';
 import UpsellPage from './components/UpsellPage';
+import DownsellPage from './components/DownsellPage';
 
 export default function App() {
   const getRoute = () => {
@@ -40,6 +41,18 @@ export default function App() {
     const hash = window.location.hash.toLowerCase();
     const searchParams = new URLSearchParams(window.location.search);
     const pageParam = searchParams.get('page')?.toLowerCase();
+
+    if (
+      path === '/downsell' || 
+      path === '/downsell/' || 
+      path.endsWith('/downsell.html') ||
+      path.endsWith('/downsell') ||
+      hash === '#/downsell' || 
+      hash === '#downsell' || 
+      pageParam === 'downsell'
+    ) {
+      return 'downsell';
+    }
 
     if (
       path === '/upsell' || 
@@ -174,6 +187,10 @@ export default function App() {
 
   if (currentRoute === 'upsell') {
     return <UpsellPage />;
+  }
+
+  if (currentRoute === 'downsell') {
+    return <DownsellPage />;
   }
 
   return (

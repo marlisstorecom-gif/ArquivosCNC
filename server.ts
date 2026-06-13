@@ -103,6 +103,22 @@ async function startServer() {
       appType: "spa",
     });
     app.use(vite.middlewares);
+
+    // React SPA routing catch-all in development mode so /upsell and /downsell resolve correctly on direct refresh
+    app.get("*", async (req, res, next) => {
+      if (req.path.startsWith("/api/")) {
+        return next();
+      }
+      try {
+        const fs = await import("fs/promises");
+        const templatePath = path.join(process.cwd(), "index.html");
+        let template = await fs.readFile(templatePath, "utf-8");
+        template = await vite.transformIndexHtml(req.originalUrl, template);
+        return res.status(200).set({ "Content-Type": "text/html" }).end(template);
+      } catch (err) {
+        return next(err);
+      }
+    });
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));

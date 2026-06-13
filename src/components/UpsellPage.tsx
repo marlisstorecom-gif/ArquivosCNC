@@ -96,8 +96,9 @@ export default function UpsellPage() {
   ];
 
   const handleDeclineUpsell = () => {
-    // Redirect back to main page or access point
-    window.location.search = "status=success&checkout_success=true";
+    // Redirect cleanly to the /downsell slug using state-safe HTML5 history pushState
+    window.history.pushState(null, "", "/downsell");
+    window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
   const handleBuyUpsell = () => {
@@ -219,10 +220,6 @@ export default function UpsellPage() {
               </div>
             ))}
           </div>
-          
-          <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-4 italic">
-            * Compatível e editável em Corel, Illustrator, LightBurn, AutoCAD e outros programas.
-          </p>
         </div>
 
         {/* COMPARATIVE ADVANTAGE CARD - Strategic, Clean & Responsive */}
