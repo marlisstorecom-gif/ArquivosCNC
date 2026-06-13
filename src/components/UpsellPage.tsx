@@ -331,9 +331,9 @@ export default function UpsellPage() {
             #pepper-upsell-container {
               width: 100% !important;
               max-width: 100% !important;
-              display: flex !important;
-              justify-content: center !important;
-              align-items: center !important;
+              display: block !important;
+              position: relative !important;
+              z-index: 10;
             }
             #pepper-upsell-container iframe {
               width: 100% !important;
@@ -345,9 +345,15 @@ export default function UpsellPage() {
             }
           `}} />
 
-          <div id="pepper-upsell-container" className="my-4 flex justify-center items-center overflow-hidden min-h-[120px] w-full">
-            {/* O iframe do Pepper Upsell será injetado automaticamente aqui */}
-            <div className="text-xs text-slate-500 animate-pulse">Carregando formulário seguro de pagamento Pepper...</div>
+          <div className="relative w-full min-h-[120px] my-4">
+            {/* Absolute background loader - won't interfere with iframe layout */}
+            <div className="absolute inset-0 flex items-center justify-center text-xs text-slate-500 animate-pulse pointer-events-none text-center p-4 z-0">
+              Carregando formulário seguro de pagamento Pepper...
+            </div>
+            
+            <div id="pepper-upsell-container" className="overflow-hidden w-full bg-transparent">
+              {/* O iframe do Pepper Upsell será injetado automaticamente aqui */}
+            </div>
           </div>
 
           {/* Secure elements */}

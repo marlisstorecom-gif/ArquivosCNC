@@ -238,9 +238,9 @@ export default function DownsellPage() {
             #pepper-downsell-container {
               width: 100% !important;
               max-width: 100% !important;
-              display: flex !important;
-              justify-content: center !important;
-              align-items: center !important;
+              display: block !important;
+              position: relative !important;
+              z-index: 10;
             }
             #pepper-downsell-container iframe {
               width: 100% !important;
@@ -252,9 +252,15 @@ export default function DownsellPage() {
             }
           `}} />
 
-          <div id="pepper-downsell-container" className="my-4 flex justify-center items-center overflow-hidden min-h-[120px] w-full">
-            {/* O iframe do Pepper Downsell será injetado automaticamente aqui */}
-            <div className="text-xs text-slate-500 animate-pulse">Carregando formulário seguro de pagamento Pepper...</div>
+          <div className="relative w-full min-h-[120px] my-4">
+            {/* Absolute background loader - won't interfere with iframe layout */}
+            <div className="absolute inset-0 flex items-center justify-center text-xs text-slate-500 animate-pulse pointer-events-none text-center p-4 z-0">
+              Carregando formulário seguro de pagamento Pepper...
+            </div>
+            
+            <div id="pepper-downsell-container" className="overflow-hidden w-full bg-transparent">
+              {/* O iframe do Pepper Downsell será injetado automaticamente aqui */}
+            </div>
           </div>
 
           <div className="flex justify-between items-center mt-5 pt-3 border-t border-slate-800/50 text-[9px] text-slate-500 font-medium">
