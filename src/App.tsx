@@ -32,8 +32,19 @@ import {
 import CheckoutModal from './components/CheckoutModal';
 import ReviewsSection from './components/ReviewsSection';
 import CategoryExplorer from './components/CategoryExplorer';
+import UpsellPage from './components/UpsellPage';
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ url: string; title: string } | null>(null);
   const [openFaqId, setOpenFaqId] = useState<string | null>(null);
@@ -136,6 +147,10 @@ export default function App() {
   const handleOpenCheckout = () => {
     window.location.href = platformCheckoutUrl;
   };
+
+  if (currentPath.toLowerCase() === '/upsell' || currentPath.toLowerCase() === '/upsell/') {
+    return <UpsellPage />;
+  }
 
   return (
     <div className="bg-white min-h-screen font-sans text-slate-800 antialiased selection:bg-yellow-200">
