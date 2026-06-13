@@ -152,9 +152,9 @@ export default function UpsellPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 mt-8 sm:mt-12 text-center">
-        {/* Success Alert Badge */}
-        <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-extrabold px-3.5 py-1.5 rounded-full mb-6">
-          <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" /> COMPRA DO CLIENTE REGISTRADA COM SUCESSO!
+        {/* Confirmed Badge */}
+        <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-extrabold px-4 py-2 rounded-full mb-6">
+          <Check className="w-4 h-4 text-emerald-400 stroke-[3]" /> COMPRA PRINCIPAL SALVA COM SUCESSO!
         </div>
 
         {/* Catchy Main Heading */}
