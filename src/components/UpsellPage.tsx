@@ -146,7 +146,7 @@ export default function UpsellPage() {
           {/* Step 3 */}
           <div className="flex items-center gap-1 sm:gap-1.5 text-slate-500 shrink-0 font-semibold select-none">
             <div className="w-4.5 h-4.5 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-[8px] shrink-0">3</div>
-            <span className="whitespace-nowrap">Receber Material</span>
+            <span className="whitespace-nowrap">Material</span>
           </div>
         </div>
       </div>
@@ -159,11 +159,11 @@ export default function UpsellPage() {
 
         {/* Catchy Main Heading */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-white mb-4">
-          Multiplique Seus Lucros! Adicione a <span className="text-yellow-400 underline decoration-yellow-400/40">Mega Coleção com 5.000 Arquivos</span> de Puro Sucesso
+          Multiplique Seus Ganhos! Adicione a <span className="text-yellow-400 underline decoration-yellow-400/40">Mega Coleção com 5.000 Vetores Organizados</span> de Sucesso
         </h1>
         
         <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto mb-8 leading-relaxed">
-          Nós organizamos todos os filetes de ouro em uma única biblioteca. Esqueça arquivos danificados ou difíceis de encaixar. Leve agora o kit completo com <span className="text-yellow-300 font-bold">5.000 projetos perfeitamente divididos em 13 categorias comerciais</span> pelo valor de custo.
+          Nós já organizamos e separamos os filetes de ouro do mercado de corte a laser. Em vez de perder semanas baixando arquivos repetidos ou desatualizados, adicione de uma única vez <span className="text-yellow-300 font-bold">os 13 nichos que respondem por 95% do faturamento</span> com mais de <span className="text-yellow-300 font-bold">5.000 modelos testados</span>.
         </p>
 
         {/* Dynamic Mobile-Friendly Timer Box */}
@@ -225,64 +225,62 @@ export default function UpsellPage() {
           </p>
         </div>
 
-        {/* DETAILED STRATEGIC COMPARISON TABLE CARD (Perfect on mobile, responsive, strategic layout) */}
+        {/* COMPARATIVE ADVANTAGE CARD - Strategic, Clean & Responsive */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 text-left mb-12 max-w-3xl mx-auto shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full filter blur-2xl pointer-events-none"></div>
+          
           <div className="border-b border-slate-800/80 pb-3 mb-5">
             <span className="bg-yellow-400/10 text-yellow-400 text-[9px] font-black tracking-widest px-2.5 py-0.5 rounded-full uppercase">
-              RAZÕES COMERCIAIS
+              ANÁLISE ESTRATÉGICA
             </span>
             <h3 className="text-base sm:text-lg font-black text-white mt-1.5">
-              Por que adicionar a Mega Coleção ao seu pedido hoje mesmo?
+              Por que esta MEGA COLEÇÃO é indispensável agora?
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Decisão errada */}
-            <div className="bg-red-950/10 border border-red-900/15 rounded-xl p-4 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-1.5 text-red-400 font-bold text-xs mb-3">
-                  <XCircle className="w-4 h-4 text-red-500" />
-                  <span>Se Você Deixar Para Depois</span>
-                </div>
-                <ul className="space-y-2 text-xs text-slate-400">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-red-500 font-bold">✕</span>
-                    <span>Pagará mais caro comprando pacotes avulsos em plataformas sem curadoria técnica.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-red-500 font-bold">✕</span>
-                    <span>Gasta horas ajustando encaixes folgados ou errados na hora de recortar.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-red-500 font-bold">✕</span>
-                    <span>Perda de sazonalidades lucrativas como Páscoa, Dia das Mães e Natal por escassez de templates criativos.</span>
-                  </li>
-                </ul>
+            {/* Dark Side: buying individual or messy items */}
+            <div className="space-y-3 bg-red-950/10 border border-red-900/20 rounded-xl p-4 sm:p-5">
+              <div className="flex items-center gap-2 text-red-400 font-bold text-xs sm:text-sm">
+                <XCircle className="w-4 h-4 shrink-0" />
+                <span>Sem o Upgrade de Nichos</span>
               </div>
+              <ul className="space-y-2 text-xs text-slate-400 leading-relaxed">
+                <li className="flex items-start gap-1.5">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span>Você terá que procurar mídias avulsas gasta-tempo e pagar mais de <strong>R$ 15,00 por vetor</strong> de nicho individual.</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span><strong>Perda de nichos lucrativos</strong> como religiosos e tábuas gourmet, deixando dinheiro na mesa.</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span>Arquivos bagunçados que demandam correções de junção e geram desperdício de MDF no laser.</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Decisão inteligente */}
-            <div className="bg-emerald-950/15 border border-emerald-900/30 rounded-xl p-4 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs mb-3">
-                  <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                  <span>Adicionando o Upgrade Hoje</span>
-                </div>
-                <ul className="space-y-2 text-xs text-slate-300">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-emerald-400 font-black">✓</span>
-                    <span>Acesso a mais de <strong>5.000 vetores comerciais</strong> de altíssima saída e precisão.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-emerald-400 font-black">✓</span>
-                    <span>Projetos 3D e de caixas em alta escala inteiramente testados em laser de 3 e 6mm.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-emerald-400 font-black">✓</span>
-                    <span>Envio imediato direto no seu e-mail junto do material já adquirido com acesso vitalício.</span>
-                  </li>
-                </ul>
+            {/* Bright Side: The full bundle today */}
+            <div className="space-y-3 bg-emerald-950/10 border border-emerald-900/20 rounded-xl p-4 sm:p-5">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs sm:text-sm">
+                <Check className="w-4 h-4 text-emerald-400 stroke-[3] shrink-0" />
+                <span>Com o Upgrade Completo Hoje</span>
               </div>
+              <ul className="space-y-2 text-xs text-slate-300 leading-relaxed">
+                <li className="flex items-start gap-1.5">
+                  <span className="text-emerald-400 font-black">✓</span>
+                  <span>Mais de <strong>5.000 vetores profissionais</strong> prontificados para faturamento constante por apenas R$ 29,90.</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="text-emerald-400 font-black">✓</span>
+                  <span>Garantia de <strong>tamanhos e juntas testadas em máquinas reais</strong> (MDF e acrílico sintonizados).</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="text-emerald-400 font-black">✓</span>
+                  <span>Pastas organizadas que poupam meses de pesquisa tediosa. Chegará tudo no seu e-mail em segundos.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -339,12 +337,12 @@ export default function UpsellPage() {
         </div>
 
         {/* Downsell Link */}
-        <div className="mt-8 max-w-sm mx-auto">
+        <div className="mt-8 max-w-md mx-auto">
           <button
             onClick={handleDeclineUpsell}
-            className="text-slate-500 hover:text-red-400 underline text-xs tracking-wide font-medium transition-colors bg-transparent border-0 cursor-pointer p-2 inline-block leading-relaxed"
+            className="text-slate-500 hover:text-red-400 underline text-xs tracking-wide font-medium transition-colors bg-transparent border-0 cursor-pointer p-2 inline-block leading-relaxed text-center"
           >
-            ❌ Recusar esta oferta de R$ 29,90 e receber apenas a compra de R$ 10,00 sem o bônus de 5.000 vetores.
+            ❌ Não quero essa super vantagem de R$ 29,90. Prefiro continuar apenas com o pacote de R$ 10,00 e perder as atualizações automáticas de nicho para sempre.
           </button>
         </div>
       </div>
