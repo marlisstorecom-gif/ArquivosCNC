@@ -188,7 +188,7 @@ export default function App() {
   const formatNumber = (num: number) => String(num).padStart(2, '0');
   const timerStr = `${formatNumber(timeLeft.hours)}:${formatNumber(timeLeft.minutes)}:${formatNumber(timeLeft.seconds)}`;
 
-  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/r/kr4d0');
+  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/kr4d0');
 
   useEffect(() => {
     fetch('/api/checkout-url')
