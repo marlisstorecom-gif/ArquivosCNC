@@ -188,7 +188,7 @@ export default function App() {
   const formatNumber = (num: number) => String(num).padStart(2, '0');
   const timerStr = `${formatNumber(timeLeft.hours)}:${formatNumber(timeLeft.minutes)}:${formatNumber(timeLeft.seconds)}`;
 
-  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/d85ef');
+  const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/r/kr4d0');
 
   useEffect(() => {
     fetch('/api/checkout-url')
@@ -204,10 +204,12 @@ export default function App() {
   // Facebook Ads UTM parameters capturing effect (highly-durable React integration)
   useEffect(() => {
     const prefixes = [
+      "https://go.pepperpay.com.br/r/kr4d0",
       "https://go.pepperpay.com.br/kr4d0",
       "https://go.pepperpay.com.br/tmm3j",
       "https://go.pepperpay.com.br/t217r",
       "https://go.pepperpay.com.br/d85ef",
+      "https://go.pepperpay.com.br/r/",
       "https://go.pepperpay.com.br/"
     ];
 
@@ -904,10 +906,12 @@ export default function App() {
           <script dangerouslySetInnerHTML={{ __html: `
             (function() {
               var prefix = [
+                "https://go.pepperpay.com.br/r/kr4d0",
                 "https://go.pepperpay.com.br/kr4d0",
                 "https://go.pepperpay.com.br/tmm3j",
                 "https://go.pepperpay.com.br/t217r",
                 "https://go.pepperpay.com.br/d85ef",
+                "https://go.pepperpay.com.br/r/",
                 "https://go.pepperpay.com.br/"
               ];
               function getParams() {

@@ -25,7 +25,7 @@ async function startServer() {
 
   // Endpoint to get the configured traditional sales platform checkout link
   app.get("/api/checkout-url", (req, res) => {
-    const baseCheckoutUrl = process.env.PLATFORM_CHECKOUT_URL || "https://go.pepperpay.com.br/d85ef";
+    const baseCheckoutUrl = process.env.PLATFORM_CHECKOUT_URL || "https://go.pepperpay.com.br/r/kr4d0";
     return res.json({ checkoutUrl: baseCheckoutUrl });
   });
 
@@ -46,7 +46,7 @@ async function startServer() {
     // Log captured lead values for sales integration & telemetry
     console.log(`[Lead Captured] Name: ${name} | Email: ${email} | CPF: ${cleanCpf} | WhatsApp: ${cleanPhone} | Method: ${paymentMethod || "standard"}`);
 
-    const baseCheckoutUrl = process.env.PLATFORM_CHECKOUT_URL || "https://go.pepperpay.com.br/d85ef";
+    const baseCheckoutUrl = process.env.PLATFORM_CHECKOUT_URL || "https://go.pepperpay.com.br/r/kr4d0";
 
     // Build platform checkout URL with prefilled URL parameter variables for enhanced user experience and conversion rate boost
     let finalCheckoutUrl = baseCheckoutUrl;
