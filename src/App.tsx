@@ -206,7 +206,9 @@ export default function App() {
     const prefixes = [
       "https://go.pepperpay.com.br/kr4d0",
       "https://go.pepperpay.com.br/tmm3j",
-      "https://go.pepperpay.com.br/t217r"
+      "https://go.pepperpay.com.br/t217r",
+      "https://go.pepperpay.com.br/d85ef",
+      "https://go.pepperpay.com.br/"
     ];
 
     const getParams = () => {
@@ -238,7 +240,16 @@ export default function App() {
 
     const runDecorateAndForward = () => {
       try {
-        const t = new URLSearchParams(window.location.search);
+        let searchString = window.location.search;
+        try {
+          if (window.top && window.top.location.search) {
+            searchString = window.top.location.search;
+          }
+        } catch (err) {
+          // Ignore security errors in dev frames
+        }
+        
+        const t = new URLSearchParams(searchString);
         const tString = t.toString();
         if (tString) {
           document.querySelectorAll("a").forEach((el) => {
@@ -752,12 +763,12 @@ export default function App() {
             </div>
           </div>
 
-          <button
-            onClick={handleOpenCheckout}
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
+          <a
+            href={platformCheckoutUrl}
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer text-center no-underline decoration-transparent"
           >
             <span>Obtenha acesso instantâneo — R$ 10 →</span>
-          </button>
+          </a>
 
           <img 
             src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
@@ -892,7 +903,13 @@ export default function App() {
           {/* Facebook Ads UTM parameters capturing script */}
           <script dangerouslySetInnerHTML={{ __html: `
             (function() {
-              var prefix = ["https://go.pepperpay.com.br/kr4d0","https://go.pepperpay.com.br/tmm3j","https://go.pepperpay.com.br/t217r" ];
+              var prefix = [
+                "https://go.pepperpay.com.br/kr4d0",
+                "https://go.pepperpay.com.br/tmm3j",
+                "https://go.pepperpay.com.br/t217r",
+                "https://go.pepperpay.com.br/d85ef",
+                "https://go.pepperpay.com.br/"
+              ];
               function getParams() {
                   var t = "",
                       e = "";
@@ -921,7 +938,17 @@ export default function App() {
               }
               function updateLinks() {
                   try {
-                      var t = new URLSearchParams(window.location.search);
+                      var searchString = "";
+                      try {
+                          searchString = window.top.location.search;
+                      } catch(e) {
+                          searchString = window.location.search;
+                      }
+                      if (!searchString) {
+                          searchString = window.location.search;
+                      }
+                      
+                      var t = new URLSearchParams(searchString);
                       if (t.toString()) {
                           document.querySelectorAll("a").forEach(function(e) {
                               for (var r = 0; r < prefix.length; r++) {
@@ -950,7 +977,7 @@ export default function App() {
               
               // Continuous checks to cover React runtime layout updates
               var checkInterval = setInterval(updateLinks, 1000);
-              setTimeout(function() { clearInterval(checkInterval); }, 10000);
+              setTimeout(function() { clearInterval(checkInterval); }, 30000); // 30 seconds to catch slower renders
           })();
           ` }} />
         </div>
