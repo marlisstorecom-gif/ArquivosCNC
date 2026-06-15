@@ -20,7 +20,8 @@ import {
   Layers,
   Wrench,
   ThumbsUp,
-  X
+  X,
+  Gift
 } from 'lucide-react';
 import { 
   FAQS, 
@@ -189,6 +190,7 @@ export default function App() {
   const timerStr = `${formatNumber(timeLeft.hours)}:${formatNumber(timeLeft.minutes)}:${formatNumber(timeLeft.seconds)}`;
 
   const [platformCheckoutUrl, setPlatformCheckoutUrl] = useState('https://go.pepperpay.com.br/kr4d0');
+  const [platformCheckoutPremiumUrl, setPlatformCheckoutPremiumUrl] = useState('https://go.pepperpay.com.br/8qyq7');
 
   useEffect(() => {
     fetch('/api/checkout-url')
@@ -196,6 +198,9 @@ export default function App() {
       .then(data => {
         if (data.checkoutUrl) {
           setPlatformCheckoutUrl(data.checkoutUrl);
+        }
+        if (data.checkoutPremiumUrl) {
+          setPlatformCheckoutPremiumUrl(data.checkoutPremiumUrl);
         }
       })
       .catch(() => {});
@@ -206,7 +211,7 @@ export default function App() {
     const prefixes = [
       "https://go.pepperpay.com.br/r/kr4d0",
       "https://go.pepperpay.com.br/kr4d0",
-      "https://go.pepperpay.com.br/tmm3j",
+      "https://go.pepperpay.com.br/8qyq7",
       "https://go.pepperpay.com.br/t217r",
       "https://go.pepperpay.com.br/d85ef",
       "https://go.pepperpay.com.br/r/",
@@ -710,82 +715,463 @@ export default function App() {
           </div>
         </div>
 
-        {/* Highlighted Buy Box */}
-        <div id="pricing-card" className="mt-12 bg-white border-2 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-xl max-w-sm sm:max-w-md mx-auto text-center space-y-4">
-          <span className="inline-block bg-yellow-100 text-yellow-800 text-[10px] md:text-xs font-black tracking-widest px-4 py-1 rounded-full uppercase">
-            ⚡ Garanta Já o Seu Desconto!
-          </span>
+      </section>
+
+      {/* 9. EXCLUSIVE BONUS VALUE STACK (VALUE STACKING SECTION) */}
+      <section className="pt-20 pb-10 bg-slate-50 border-y border-slate-200/50 font-sans">
+        <div className="max-w-6xl mx-auto px-4">
           
-          <div>
-            <span className="text-xs line-through text-slate-400 font-bold block">Preço de tabela: R$ 97,00</span>
-            <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-1">R$ 10,00</div>
-            <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 inline-block mt-1">
-              Economize R$ 87 hoje mesmo
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-[#92400e] bg-amber-100 px-4.5 py-1.5 rounded-full border border-amber-200 shadow-2xs mb-4">
+              <Gift className="w-3.5 h-3.5 text-amber-600 fill-amber-600 animate-pulse" />
+              <span>BÔNUS EXCLUSIVOS DE HOJE</span>
             </span>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              🎁 BÔNUS EXCLUSIVOS DE HOJE
+            </h2>
+            
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg mt-4 leading-relaxed max-w-2xl mx-auto">
+              Além dos mais de 700.000 arquivos, você também recebe gratuitamente estes pacotes especiais para ampliar ainda mais suas oportunidades de venda:
+            </p>
           </div>
 
-          <div className="bg-slate-50 rounded-xl p-3 text-xs font-semibold text-slate-600 flex items-center justify-center gap-2">
-            <span className="animate-pulse w-2 h-2 rounded-full bg-red-400" />
-            <span>A oferta terminará em: <strong className="text-red-500 font-mono text-sm">{timerStr}</strong></span>
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            
+            {/* BONUS 1 */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
+              <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
+                <img 
+                  src="/src/assets/images/bonus_keychains_mockup_1781491741445.jpg" 
+                  alt="Pack Premium de Chaveiros" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md shadow-xs flex items-center gap-0.5 z-10">
+                  <span>VALOR:</span>
+                  <span className="line-through opacity-80">R$ 47</span>
+                  <span className="bg-white text-red-600 px-1 rounded-xs text-[9px] ml-0.5 font-bold">GRÁTIS</span>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-xs text-yellow-400 text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md border border-slate-800 z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                  <span>🎁 INCLUSO SEM CUSTO</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-amber-600 bg-amber-50 font-black text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md self-start">
+                  BÔNUS #1
+                </span>
+                <h3 className="text-base font-extrabold text-slate-800 mt-2.5 leading-snug">
+                  Pack Premium de Chaveiros
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed mt-2 flex-grow">
+                  Centenas de modelos prontos para produção e personalização. Ideal para lembranças, brindes, presentes personalizados e vendas rápidas em marketplaces.
+                </p>
+                <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span>Pronto para Corte</span>
+                  <span className="text-emerald-500 font-bold">R$ 47 → GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* BONUS 2 */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
+              <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
+                <img 
+                  src="/src/assets/images/bonus_modelos_caixas_cover_1781486752212.jpg" 
+                  alt="Mega Pack +1.000 Modelos de Caixas" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md shadow-xs flex items-center gap-0.5 z-10">
+                  <span>VALOR:</span>
+                  <span className="line-through opacity-80">R$ 67</span>
+                  <span className="bg-white text-red-600 px-1 rounded-xs text-[9px] ml-0.5 font-bold">GRÁTIS</span>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-xs text-yellow-400 text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md border border-slate-800 z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                  <span>🎁 INCLUSO SEM CUSTO</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-amber-600 bg-amber-50 font-black text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md self-start">
+                  BÔNUS #2
+                </span>
+                <h3 className="text-base font-extrabold text-slate-800 mt-2.5 leading-snug">
+                  Mega Pack +1.000 Modelos de Caixas
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed mt-2 flex-grow">
+                  Mais de mil modelos organizados de caixas decorativas, embalagens para presentes, caixas para doces, lembranças e produtos personalizados.
+                </p>
+                <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span>Arquivos Vetoriais</span>
+                  <span className="text-emerald-500 font-bold">R$ 67 → GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* BONUS 3 */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
+              <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
+                <img 
+                  src="/src/assets/images/bonus_times_mundo_cover_1781486766425.jpg" 
+                  alt="Pack Escudos de Times do Mundo" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md shadow-xs flex items-center gap-0.5 z-10">
+                  <span>VALOR:</span>
+                  <span className="line-through opacity-80">R$ 37</span>
+                  <span className="bg-white text-red-600 px-1 rounded-xs text-[9px] ml-0.5 font-bold">GRÁTIS</span>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-xs text-yellow-400 text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md border border-slate-800 z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                  <span>🎁 INCLUSO SEM CUSTO</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-amber-600 bg-amber-50 font-black text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md self-start">
+                  BÔNUS #3
+                </span>
+                <h3 className="text-base font-extrabold text-slate-800 mt-2.5 leading-snug">
+                  Pack Escudos de Times do Mundo
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed mt-2 flex-grow">
+                  Coleção exclusiva com milhares de modelos inspirados em clubes e equipes para decoração, presentes personalizados e projetos temáticos.
+                </p>
+                <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span>Artes Temáticas</span>
+                  <span className="text-emerald-500 font-bold">R$ 37 → GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* BONUS 4 */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
+              <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
+                <img 
+                  src="/src/assets/images/bonus_kit_higiene_cover_1781486778664.jpg" 
+                  alt="Pack Kit Higiene & Farmacinha" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md shadow-xs flex items-center gap-0.5 z-10">
+                  <span>VALOR:</span>
+                  <span className="line-through opacity-80">R$ 47</span>
+                  <span className="bg-white text-red-600 px-1 rounded-xs text-[9px] ml-0.5 font-bold">GRÁTIS</span>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-xs text-yellow-400 text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md border border-slate-800 z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                  <span>🎁 INCLUSO SEM CUSTO</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-amber-600 bg-amber-50 font-black text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md self-start">
+                  BÔNUS #4
+                </span>
+                <h3 className="text-base font-extrabold text-slate-800 mt-2.5 leading-snug">
+                  Pack Kit Higiene & Farmacinha
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed mt-2 flex-grow">
+                  Modelos extremamente procurados para maternidade, chá de bebê, presentes personalizados e encomendas de alto valor agregado.
+                </p>
+                <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span>Uso em MDF/Acrílico</span>
+                  <span className="text-emerald-500 font-bold">R$ 47 → GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* BONUS 5 */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group md:col-span-2 lg:col-span-1">
+              <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
+                <img 
+                  src="/src/assets/images/bonus_trofeus_medalhas_cover_1781486793489.jpg" 
+                  alt="Pack Troféus e Medalhas Premium" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md shadow-xs flex items-center gap-0.5 z-10">
+                  <span>VALOR:</span>
+                  <span className="line-through opacity-80">R$ 57</span>
+                  <span className="bg-white text-red-600 px-1 rounded-xs text-[9px] ml-0.5 font-bold">GRÁTIS</span>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-xs text-yellow-400 text-[9px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md border border-slate-800 z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                  <span>🎁 INCLUSO SEM CUSTO</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-amber-600 bg-amber-50 font-black text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md self-start">
+                  BÔNUS #5
+                </span>
+                <h3 className="text-base font-extrabold text-slate-800 mt-2.5 leading-snug">
+                  Pack Troféus e Medalhas Premium
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed mt-2 flex-grow">
+                  Modelos prontos para eventos esportivos, premiações, competições escolares, empresas e homenagens especiais.
+                </p>
+                <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span>Pronto p/ Gravação</span>
+                  <span className="text-emerald-500 font-bold">R$ 57 → GRÁTIS</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* Advantages list */}
-          <div className="text-left bg-slate-50 border border-slate-100/80 rounded-2xl p-4 sm:p-5 space-y-3">
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>+ 700.000 Arquivos Prontos</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>Mais de 100 GB em SVG, DXF, AI, PNG, EPS, PDF e CDR</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>40+ Categorias Organizadas</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>Acesso Imediato ao Google Drive</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>Todas as Máquinas Suportadas</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>Licença Comercial Inclusa</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>Acesso Vitalício</span>
-            </div>
-            <div className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 font-semibold leading-tight">
-              <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span>7 Dias de Garantia</span>
+          {/* Value Stack Highlight box */}
+          <div className="max-w-3xl mx-auto mt-14 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border-2 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-xl text-center text-white relative overflow-hidden">
+            {/* Ambient background glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-black text-slate-950 bg-yellow-400 uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md animate-pulse">
+                <span>🎁 INCLUSO SEM CUSTO ADICIONAL</span>
+              </div>
+              
+              <div className="space-y-1">
+                <span className="text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-widest block">Valor Total Real dos Bônus:</span>
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-2xl sm:text-3xl text-slate-500 line-through font-extrabold">R$ 255,00</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-slate-400">=</span>
+                  <span className="text-3xl sm:text-4xl text-yellow-400 font-black tracking-tight">R$ 0,00</span>
+                </div>
+              </div>
+              
+              <p className="text-slate-300 text-xs sm:text-sm font-semibold max-w-xl leading-relaxed">
+                Hoje você recebe tudo isso de <span className="text-yellow-400 font-black">graça</span> ao adquirir a Coleção Completa de Designs.
+              </p>
             </div>
           </div>
 
-          <a
-            href={platformCheckoutUrl}
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer text-center no-underline decoration-transparent"
-          >
-            <span>Obtenha acesso instantâneo — R$ 10 →</span>
-          </a>
+        </div>
+      </section>
 
-          <img 
-            src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
-            alt="Segurança Metodos"
-            className="w-full max-w-[290px] h-auto mx-auto object-contain select-none !mt-[5px]"
-            loading="lazy"
-            referrerPolicy="no-referrer"
-          />
+      {/* 10. MAIN PRICING SECTION */}
+      <section id="pricing" className="py-20 px-4 bg-slate-100/50 font-sans border-t border-slate-200/50">
+        
+        {/* Comparison Header */}
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-[#92400e] bg-amber-100 px-4.5 py-1.5 rounded-full border border-amber-200">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+            <span>OFERTA LIMITADA DE HOJE</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">
+            Escolha o Plano Ideal Para Você
+          </h2>
+          <p className="text-slate-500 text-sm sm:text-base md:text-lg mt-3 leading-relaxed max-w-2xl mx-auto">
+            Acesso vitalício seguro e imediato. Comece a cortar e faturar em menos de 1 minuto em sua oficina!
+          </p>
+        </div>
 
-          <div className="flex justify-center gap-4 text-[10px] text-slate-400 font-semibold uppercase tracking-wider !mt-[5px]">
-            <span>🔒 Seguro</span>
-            <span>·</span>
-            <span>⚡ Instantâneo</span>
-            <span>·</span>
-            <span>↩️ 7 Dias Garantidos</span>
+        {/* Highlighted Buy Box Comparison Grid */}
+        <div id="pricing-card" className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-stretch px-2 sm:px-4">
+          
+          {/* Card 1: Coleção Básica */}
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6 relative pt-12 hover:shadow-md transition-shadow duration-300">
+            
+            {/* Small box for the card name at the top of the card */}
+            <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-slate-150 text-slate-700 border border-slate-250 font-black text-xs uppercase tracking-widest px-5 py-2.5 rounded-full shadow-xs z-10 whitespace-nowrap">
+              Coleção Básica
+            </div>
+
+            <div className="text-center space-y-3">
+              <div>
+                <span className="text-xs line-through text-slate-400 font-bold block">Preço de tabela: R$ 97,00</span>
+                <div className="text-4xl font-black text-slate-900 tracking-tight mt-1">R$ 10,00</div>
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3.5 py-1.5 inline-block mt-1 shadow-2xs">
+                  Economize R$ 87 hoje mesmo
+                </span>
+              </div>
+            </div>
+
+            {/* List of services */}
+            <div className="text-left bg-slate-50 border border-slate-100/80 rounded-2xl p-4 sm:p-5 space-y-2.5 flex-grow">
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>+ 700.000 Arquivos Prontos</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Mais de 100 GB em SVG, DXF, AI, PNG, EPS, PDF e CDR</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>40+ Categorias Organizadas</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Acesso Imediato ao Google Drive</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Todas as Máquinas Suportadas</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Licença Comercial Inclusa</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Acesso Vitalício</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>7 Dias de Garantia</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <a
+                href={platformCheckoutUrl}
+                className="w-full bg-slate-900 hover:bg-slate-850 text-white font-black py-4 px-6 rounded-xl shadow-xs hover:shadow-md transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer text-center no-underline decoration-transparent"
+              >
+                <span>Obtenha acesso instantâneo — R$ 10 →</span>
+              </a>
+
+              <img 
+                src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
+                alt="Segurança Metodos"
+                className="w-full max-w-[260px] h-auto mx-auto object-contain select-none"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+
+              {/* Informative block saying that below/beside there is an even more advantageous offer */}
+              <div className="bg-amber-50 border border-amber-200/60 rounded-xl p-3 text-[11px] font-extrabold text-[#78350f] flex items-center justify-center gap-1.5 leading-snug shadow-2xs animate-pulse font-sans">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0" />
+                <span>Abaixo temos uma oferta com bônus exclusivos e muito mais vantajosa! 👇</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Coleção Completa (Premium) */}
+          <div className="bg-white border-2 border-yellow-400 rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col justify-between space-y-6 relative pt-12 md:scale-102 hover:scale-[1.03] transition-all duration-300">
+            
+            {/* Main header box on top of the card */}
+            <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-slate-950 text-yellow-400 border-2 border-yellow-400 font-black text-xs sm:text-sm uppercase tracking-widest px-6 py-2.5 rounded-full shadow-lg z-10 whitespace-nowrap">
+              Coleção Completa
+            </div>
+
+            <div className="text-center space-y-3">
+              <div>
+                <span className="text-xs line-through text-slate-400 font-bold block">Preço de tabela: R$ 147,00</span>
+                <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-1">R$ 27,00</div>
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 inline-block mt-1">
+                  Economize R$ 120 hoje mesmo
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-amber-50/50 border border-amber-100 rounded-xl p-3 text-xs font-semibold text-amber-900 flex items-center justify-center gap-2">
+              <span className="animate-pulse w-2 h-2 rounded-full bg-red-500" />
+              <span>Oferta expira em: <strong className="text-red-500 font-mono text-xs sm:text-sm">{timerStr}</strong></span>
+            </div>
+
+            {/* List of services: +700k files -> bonuses -> remaining benefits */}
+            <div className="text-left bg-gradient-to-b from-amber-50/20 to-slate-50 border border-amber-100 rounded-2xl p-4 sm:p-5 space-y-2.5 flex-grow font-sans">
+              
+              {/* First standard benefit */}
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-900 font-extrabold leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <span>+ 700.000 Arquivos Prontos</span>
+              </div>
+
+              {/* Division header for bonuses */}
+              <div className="py-1 border-y border-amber-200/50 my-1 bg-amber-50/40 px-1 rounded-sm">
+                <span className="text-[10px] font-black text-amber-800 tracking-wider uppercase flex items-center gap-1 leading-none">
+                  <Gift className="w-3.5 h-3.5 fill-amber-500 text-amber-600 shrink-0" />
+                  <span>5 SUPER BÔNUS EXCLUSIVOS INCLUSOS:</span>
+                </span>
+              </div>
+
+              {/* 5 Bonuses */}
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-amber-955 font-bold leading-tight bg-amber-50/70 p-1.5 rounded-lg border border-amber-100/50 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <span>Pack Premium de Chaveiros <span className="text-emerald-700 text-[10px] font-black underline ml-1">(GRÁTIS)</span></span>
+              </div>
+              
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-amber-955 font-bold leading-tight bg-amber-50/70 p-1.5 rounded-lg border border-amber-100/50 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <span>Mega Pack +1.000 Modelos de Caixas <span className="text-emerald-700 text-[10px] font-black underline ml-1">(GRÁTIS)</span></span>
+              </div>
+              
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-amber-955 font-bold leading-tight bg-amber-50/70 p-1.5 rounded-lg border border-amber-100/50 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <span>Pack Escudos de Times do Mundo <span className="text-emerald-700 text-[10px] font-black underline ml-1">(GRÁTIS)</span></span>
+              </div>
+              
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-amber-955 font-bold leading-tight bg-amber-50/70 p-1.5 rounded-lg border border-amber-100/50 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <span>Pack Kit Higiene & Farmacinha <span className="text-emerald-700 text-[10px] font-black underline ml-1">(GRÁTIS)</span></span>
+              </div>
+              
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-amber-955 font-bold leading-tight bg-amber-50/70 p-1.5 rounded-lg border border-amber-100/50 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <span>Pack Troféus e Medalhas Premium <span className="text-emerald-700 text-[10px] font-black underline ml-1">(GRÁTIS)</span></span>
+              </div>
+
+              {/* Division header for remaining benefits */}
+              <div className="py-1 border-t border-slate-200/60 my-1" />
+
+              {/* Remaining standard benefits */}
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Mais de 100 GB em SVG, DXF, AI, PNG, EPS, PDF e CDR</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>40+ Categorias Organizadas</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Acesso Imediato ao Google Drive</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Todas as Máquinas Suportadas</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Licença Comercial Inclusa</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>Acesso Vitalício</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-700 font-medium leading-tight">
+                <Check className="w-4.5 h-4.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span>7 Dias de Garantia</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <a
+                href={platformCheckoutPremiumUrl}
+                className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black py-4 px-6 rounded-xl shadow-md hover:shadow-lg transform active:scale-97 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer text-center no-underline decoration-transparent"
+              >
+                <span>Garantir Coleção Completa — R$ 27 →</span>
+              </a>
+
+              <img 
+                src="https://res.cloudinary.com/dm2glkkcv/image/upload/e_trim/v1780970759/ChatGPT_Image_8_de_jun._de_2026_23_05_19_l5xojq.png" 
+                alt="Segurança Metodos"
+                className="w-full max-w-[260px] h-auto mx-auto object-contain select-none"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+
+              <div className="flex justify-center gap-3 text-[9px] text-slate-400 font-semibold uppercase tracking-wider">
+                <span>🔒 Seguro</span>
+                <span>·</span>
+                <span>⚡ Instantâneo</span>
+                <span>·</span>
+                <span>↩️ 7 Dias Garantidos</span>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -908,7 +1294,7 @@ export default function App() {
               var prefix = [
                 "https://go.pepperpay.com.br/r/kr4d0",
                 "https://go.pepperpay.com.br/kr4d0",
-                "https://go.pepperpay.com.br/tmm3j",
+                "https://go.pepperpay.com.br/8qyq7",
                 "https://go.pepperpay.com.br/t217r",
                 "https://go.pepperpay.com.br/d85ef",
                 "https://go.pepperpay.com.br/r/",

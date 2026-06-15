@@ -26,7 +26,11 @@ async function startServer() {
   // Endpoint to get the configured traditional sales platform checkout link
   app.get("/api/checkout-url", (req, res) => {
     const baseCheckoutUrl = process.env.PLATFORM_CHECKOUT_URL || "https://go.pepperpay.com.br/kr4d0";
-    return res.json({ checkoutUrl: baseCheckoutUrl });
+    const premiumCheckoutUrl = process.env.PLATFORM_CHECKOUT_PREMIUM_URL || "https://go.pepperpay.com.br/8qyq7";
+    return res.json({ 
+      checkoutUrl: baseCheckoutUrl, 
+      checkoutPremiumUrl: premiumCheckoutUrl 
+    });
   });
 
   // 1. Endpoint: Custom Platform Checkout & Lead capture
