@@ -852,7 +852,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/images/bonus_kit_higiene_cover_1781486778664.jpg" 
+                  src="/images/bonus_higiene_kit_1781492556797.jpg" 
                   alt="Pack Kit Higiene & Farmacinha" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
