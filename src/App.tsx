@@ -744,7 +744,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/src/assets/images/bonus_keychains_mockup_1781491741445.jpg" 
+                  src="/images/bonus_keychains_mockup_1781491741445.jpg" 
                   alt="Pack Premium de Chaveiros" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
@@ -780,7 +780,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/src/assets/images/bonus_modelos_caixas_cover_1781486752212.jpg" 
+                  src="/images/bonus_modelos_caixas_cover_1781486752212.jpg" 
                   alt="Mega Pack +1.000 Modelos de Caixas" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
@@ -816,7 +816,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/src/assets/images/bonus_times_mundo_cover_1781486766425.jpg" 
+                  src="/images/bonus_times_mundo_cover_1781486766425.jpg" 
                   alt="Pack Escudos de Times do Mundo" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
@@ -852,7 +852,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/src/assets/images/bonus_kit_higiene_cover_1781486778664.jpg" 
+                  src="/images/bonus_kit_higiene_cover_1781486778664.jpg" 
                   alt="Pack Kit Higiene & Farmacinha" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
@@ -888,7 +888,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden relative group md:col-span-2 lg:col-span-1">
               <div className="relative aspect-square w-full bg-slate-50 overflow-hidden border-b border-slate-100 flex items-center justify-center">
                 <img 
-                  src="/src/assets/images/bonus_trofeus_medalhas_cover_1781486793489.jpg" 
+                  src="/images/bonus_trofeus_medalhas_cover_1781486793489.jpg" 
                   alt="Pack Troféus e Medalhas Premium" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   referrerPolicy="no-referrer"
